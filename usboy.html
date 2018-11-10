@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="dist/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="dist/fog.css">
+  <title>US BOY</title>
+  <style>
+ 
+	#candle1{position:absolute;bottom:0px;left:0px}
+  #candle2{position:absolute;bottom:0px;right:0px}
+  #sortable1{
+    background: url("img/parchemin.png") no-repeat;
+    list-style-type: none;
+	text-align:center;
+	font-family: Comic Sans MS;
+	font-style:italic;
+	max-width:300px;
+	padding-right:40px;
+	padding-top:40px;
+	padding-bottom:40px;
+	margin-left:30%;
+	z-index:50
+  }
+  #sortable1 li{
+    color:black
+  }
+  #sortable1:hover{cursor:pointer}
+  #jenademon{position:absolute;bottom:0px;left:20%}
+  #jenademon{position:absolute;bottom:0px}
+  </style>
+  <script src="dist/jquery.min.js"></script>
+  <script src="dist/jquery-ui.min.js"></script>
+  <script src="dist/sweetalert.js"></script>
+  <script>
+  $( function() {
+  
+	$("#jenademon").hide()
+	$("#flame").hide()
+	
+  
+    $( "#sortable1" ).sortable({
+
+    stop: function(event, ui) {
+
+      var itemOrder = $('#sortable1').sortable("toArray");
+
+      
+	  
+	  var rightOrder = ["s2","s8","s3","s4","s10","s9","s5","s7","s1","s6"]
+	  var currentOrder = []
+		for (var i = 0; i < itemOrder.length; i++) {
+		currentOrder.push(itemOrder[i])
+      }
+	  console.log(rightOrder)
+	  console.log(currentOrder)
+	  if ( rightOrder.toString() == currentOrder.toString()){
+		swal({
+			  type: 'success',
+			  title: 'Bravo !',
+			  text: "Il s'agit bien du poème US Boy par Jena Lee!",
+			  imageUrl: "img/jenalee.png",
+			  showCancelButton: false,
+			  confirmButtonColor: '#3085d6',
+			  confirmButtonText: 'Question suivante'
+				}).then((result) => {
+				if (result.value) {
+					$("#flame").show()
+					$("#jenademon").show({duration:3000})
+					$(".container").css('background-color','red')
+					$(".jumbotron").css('background-color','red')
+					$("body").css('background-color','red')
+					swal({
+					  text: "Attendez, que se passe t-il ??",
+					  showCancelButton: false,
+					  confirmButtonColor: '#d4d0c8',
+					  confirmButtonText: '...'
+						}).then((result) => {
+						if (result.value) {
+							swal({
+							  text: "Oh non ! Ce poème était en fait une incantation pour réveiller le démon de la musique des 2000's !! Nous sommes perdus !! ",
+							  showCancelButton: false,
+							  confirmButtonColor: '#d4d0c8',
+							  confirmButtonText: '...'
+								}).then((result) => {
+								if (result.value) {
+									window.location = "blog.html"
+							  }
+							})
+					  }
+					})
+			  }
+			})
+	  }
+    }
+  });
+  } );
+  </script>
+</head>
+<body>
+<div id="foglayer_01" class="fog">
+  <div class="image01"></div>
+  <div class="image02"></div>
+</div>
+<div id="foglayer_02" class="fog">
+  <div class="image01"></div>
+  <div class="image02"></div>
+</div>
+<div id="foglayer_03" class="fog">
+  <div class="image01"></div>
+  <div class="image02"></div>
+</div>
+<div id="flame"><img width="100%" src="img/flame.png"></div>
+<div id="jenademon"><img width="920px" src="img/jenademon.png"></div>
+
+<div class="container">
+<h3>
+Exercice X : Replacez dans l'ordre le fameux poème suivant :</h3></br></br>
+</br>
+
+<ul id="sortable1" class="connectedSortable">
+  
+ 
+  
+  
+  <li id="s4" class="ui-state-highlight">Nate de Gossip Girl</li>
+  <li id="s1" class="ui-state-default">Et le mystère de</li>
+  <li id="s8" class="ui-state-highlight">LOST, Sawyer</li>
+  <li id="s9" class="ui-state-highlight">Ju-Ju-Justin</li>
+  <li id="s5" class="ui-state-default">(Il a) un humour à la</li>
+   <li id="s2" class="ui-state-default">(Il a) un soupçon des bads boys de</li>
+  <li id="s7" class="ui-state-highlight">Friends</li>
+  <li id="s10" class="ui-state-default">(Il a) le coté chanteur-danseur de</li>
+  <li id="s3" class="ui-state-default">(Il a) la pureté de</li>
+  <li id="s6" class="ui-state-highlight">Fringe</li>
+  
+  
+  
+  
+  
+  
+ 
+  
+</ul>
+
+</div>
+<div id="candle1"><img src="img/candle.png"></div>
+ <div id="candle2"><img src="img/candle.png"></div>
+ 
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>bestgroupever</title>
+ <link rel="stylesheet" href="dist/bootstrap/css/lux.min.css">
+  <style>
+  #sortable { list-style-type: none; margin: 0; padding: 0; width: 450px; }
+  #sortable li { margin: 0px 0px 0px 0; padding: 1px; float: left; width: 100px; height: 90px; font-size: 4em; text-align: center; }
+  
+  #sortable:hover{cursor:pointer}
+  </style>
+ <script src="dist/jquery.min.js"></script>
+  <script src="dist/jquery-ui.min.js"></script>
+  <script src="dist/bootstrap/bootstrap.min.js"></script>
+  <script src="dist/sweetalert.js"></script>
+  <script>
+  $( function() {
+  
+	$("#id1").hide()
+    $("#indice1").on('click',function(){$("#id1").show()})
+	$("#id2").hide()
+    $("#indice2").on('click',function(){$("#id2").show()})
+	$("#id3").hide()
+    $("#indice3").on('click',function(){$("#id3").show()})
+    $( "#sortable" ).sortable(
+		{
+
+    stop: function(event, ui) {
+
+      var itemOrder = $('#sortable').sortable("toArray");
+
+      
+	  
+	  var rightOrder = ["img1","img2","img3","img4","img5","img6","img7","img8","img9","img10","img11","img12","img13","img14","img15","img16"]
+	  var currentOrder = []
+		for (var i = 0; i < itemOrder.length; i++) {
+		currentOrder.push(itemOrder[i])
+      }
+	  console.log(rightOrder)
+	  console.log(currentOrder)
+	  if ( rightOrder.toString() == currentOrder.toString()){
+		swal({
+			  type: 'success',
+			  title: 'Bien joué !',
+			  text: "Il s'agit effectivement de Tribal King! Leur histoire d'amour commence en 2006 lorsqu'ils connaissent la gloire avec leur titre Façon Sexe. Depuis il ne se sont jamais quittés et vivent toujours ensemble à Belfort.",
+			  imageUrl: "img/tk.png",
+			  showCancelButton: false,
+			  confirmButtonColor: '#3085d6',
+			  confirmButtonText: 'Question suivante'
+				}).then((result) => {
+				if (result.value) {
+					window.location = "saidetkenza.html"
+			  }
+			})
+	  }
+    }
+  }
+	);
+    $( "#sortable" ).disableSelection();
+  } );
+  
+  
+  
+  </script>
+</head>
+<body>
+ <div class="container">
+<div class="jumbotron"> 
+<h3> 1: Reconstituez le casse-tête ci-dessous pour dévoiler le plus grand groupe de ces 30 dernières années :</h3>
+</br>
+<div class="row">
+<div class="col-md-6">
+<ul id="sortable">
+  
+  <li id="img1" class="ui-state-default"><img src="img/img1.png"></li>
+  <li id="img3" class="ui-state-default"><img src="img/img13.png"></li>
+  <li id="img4" class="ui-state-default"><img src="img/img5.png"></li>
+  <li id="img8" class="ui-state-default"><img src="img/img6.png"></li>
+  <li id="img6" class="ui-state-default"><img src="img/img10.png"></li>
+  <li id="img7" class="ui-state-default"><img src="img/img14.png"></li>
+  
+  <li id="img9" class="ui-state-default"><img src="img/img3.png"></li>
+  <li id="img5" class="ui-state-default"><img src="img/img2.png"></li>
+  <li id="img11" class="ui-state-default"><img src="img/img15.png"></li>
+  <li id="img12" class="ui-state-default"><img src="img/img7.png"></li>
+  <li id="img13" class="ui-state-default"><img src="img/img4.png"></li>
+	<li id="img2" class="ui-state-default"><img src="img/img9.png"></li>
+ <li id="img14" class="ui-state-default"><img src="img/img12.png"></li>
+  <li id="img16" class="ui-state-default"><img src="img/img8.png"></li>
+  <li id="img10" class="ui-state-default"><img src="img/img11.png"></li>
+  <li id="img15" class="ui-state-default"><img src="img/img16.png"></li>
+  
+</ul>
+ </div>
+ <div class="col-md-6">
+	Indice 1 <a href="#" id="indice1">(cliquez ici pour dévoiler)</a></br>
+	<div id="id1"><h5>Je veux que tout le monde bouge ses fesses.</h5></div>
+	Indice 2 <a href="#" id="indice2">(cliquez ici pour dévoiler)</a></br>
+	<div id="id2"><h5>Que les femmes oublient leur complexes.</h5></div>
+	Indice 3 <a href="#" id="indice3">(cliquez ici pour dévoiler)</a>
+	<div id="id3"><h1>Façon Sexe.</h1></div>
+
+ </div>
+  </div>
+  </div>
+  </div>
+ 
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="dist/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="dist/fog.css">
+  <title>Blog</title>
+  <style>
+   #img{
+	position:absolute;
+	top:0px;
+	left:0px
+   }
+   
+   #send{
+   position:absolute;
+	color:yellow;
+	top:390px;
+	left:39px;
+	height:18px;
+	width:115px;
+	
+   }
+   
+   #message{
+   position:absolute;
+	color:black;
+	top:50px;
+	left:50px;
+	height:150px;
+	width:380px;
+	background-color:white
+   }
+   
+   
+   #send:hover{
+   cursor:pointer;
+   background-color:rgba(255,0,0,0.5)
+   
+   }
+   
+.line-1{
+    position: relative;
+    top: 50%;  
+    width: 24em;
+    margin: 0 auto;
+    border-right: 2px solid rgba(255,255,255,.75);
+    font-size: 100%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);    
+}
+
+/* Animation */
+.anim-typewriter{
+  animation: typewriter 4s steps(60) 1s 1 normal both,
+             blinkTextCursor 500ms steps(60) infinite normal;
+}
+@keyframes typewriter{
+  from{width: 0;}
+  to{width: 24em;}
+}
+@keyframes blinkTextCursor{
+  from{border-right-color: rgba(255,255,255,.75);}
+  to{border-right-color: transparent;}
+}
+   
+   
+	
+  </style>
+  <script src="dist/jquery.min.js"></script>
+  <script src="dist/jquery-ui.min.js"></script>
+  <script src="dist/sweetalert.js"></script>
+  <script src="dist/bootstrap/js/bootstrap.min.js"></script>
+  <script>
+  $( function() {
+  $("#message").hide()
+  
+	swal({
+							  text: "Le démon vous à aspiré dans son Skyblog datant de 2006 !! Vous devez trouver un moyen de vous enfuir !!",
+							  showCancelButton: false,
+							  confirmButtonColor: '#d4d0c8',
+							  confirmButtonText: '...'
+								}).then((result) => {
+								if (result.value) {
+									
+							  }
+							})
+							
+	$("#send").on('click',function(){
+		$("#message").show()
+		<!-- swal({ -->
+			  <!-- type: 'success', -->
+			  <!-- title: 'Dieu merci !', -->
+			  <!-- text: "Vous avez envoyé un message de détresse à l'Algerino qui va bientôt venir vous chercher!", -->
+			  <!-- showCancelButton: false, -->
+			  <!-- confirmButtonColor: '#3085d6', -->
+			  <!-- confirmButtonText: 'Suivant' -->
+								<!-- }).then((result) => { -->
+								<!-- if (result.value) { -->
+									
+							  <!-- } -->
+							<!-- }) -->
+	})
+	$("#envoi").on('click',function(){
+		
+		swal({
+			  type: 'success',
+			  title: 'Dieu merci !',
+			  text: "Vous avez envoyé un message de détresse à l'Algerino qui va bientôt venir vous chercher!",
+			  showCancelButton: false,
+			  confirmButtonColor: '#3085d6',
+			  confirmButtonText: 'Suivant'
+								}).then((result) => {
+								if (result.value) {
+									window.location ="algerino/algerino.html"
+							  }
+							})
+	})
+	
+	})
+  </script>
+</head>
+<body>
+<div id="foglayer_01" class="fog">
+  <div class="image01"></div>
+  <div class="image02"></div>
+</div>
+<div id="foglayer_02" class="fog">
+  <div class="image01"></div>
+  <div class="image02"></div>
+</div>
+<div id="foglayer_03" class="fog">
+  <div class="image01"></div>
+  <div class="image02"></div>
+</div>
+
+
+<img id="img" src="img/blog.png">
+<div id="send"></div>
+
+<div id="message"><p class="line-1 anim-typewriter">Wesh l'Algerino, c'est la merde vient me chercher STP !</p></br></br></br><button id="envoi">Envoyer</button></div>
+
+
+
+
+</body>
+</html>
