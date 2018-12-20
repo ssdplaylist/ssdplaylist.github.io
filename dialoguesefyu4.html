@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+	<link href='https://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
+    <title>Project13</title>
+	<style>
+	body {
+		background-color:black
+	}
+	
+	
+	
+	
+
+	
+	.centered {
+		  position: fixed;
+		  height:600px;
+		  width:800px;
+		  top: 50%;
+		  left: 50%;
+		  /* bring your own prefixes */
+		  transform: translate(-50%, -50%);
+		}
+
+
+body{
+  background:black;
+  font-family: 'Varela', sans-serif;
+}
+
+#nextbutton{
+	position:absolute;
+	right:0px;
+	bottom:0px;
+	z-index:20;
+	color: #fff;
+		text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080, 0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;
+}
+
+#nextbutton:hover {
+		color: #ff0070;
+		cursor:pointer
+	}	
+
+#text1{
+	position:absolute;
+	top:5px;
+	left:5px;
+	width:300px;
+	font-size:20px;
+	
+}	
+
+#text2{
+	position:absolute;
+	top:5px;
+	right:5px;
+	width:300px;
+	font-size:20px;
+	
+}	
+	
+	</style>
+  </head>
+  <body>
+  <div class="crt centered">
+	<a id="nextbutton" onclick="next()">Next</a>
+	<img id="background_image" width="800px" src="img/dialogue/sefyu1/1.png">
+	<div id="text1">...</div>
+	<div id="text2"></div>
+  </div>
+  
+  
+  
+  <script>
+  var current_dialogue = 1;
+  
+  function next(){
+	current_dialogue++
+	if(current_dialogue == 2){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="..."
+	}
+	if(current_dialogue == 3){
+		document.getElementById('text2').innerHTML=""
+		document.getElementById('text1').innerHTML="Ok poto je crois que je vais y aller là en fait ..."
+	}
+	if(current_dialogue == 4){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="Ecoute l'Algé ..."
+	}
+	if(current_dialogue == 5){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="Je vais t'aider à combattre Jena Lee mais que si tu arrives à convaincre ma go aussi."
+	}
+	if(current_dialogue == 6){
+		document.getElementById('text1').innerHTML="Ok, elle est ou en ce moment?"
+		document.getElementById('text2').innerHTML=""
+	}
+	if(current_dialogue == 7){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="Je sais pas ... Depuis que je suis mort au front elle a changé, elle sort dans des boîtes chelous et tout."
+	}
+	if(current_dialogue == 8){
+		document.getElementById('text1').innerHTML="Ok, tu sais ou elle va ?"
+		document.getElementById('text2').innerHTML=""
+	}
+	if(current_dialogue == 9){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="Je crois que en ce moment elle traine au Baby Club."
+	}
+	if(current_dialogue == 10){
+		document.getElementById('text1').innerHTML="Ok je vais faire un tour ce soir."
+		document.getElementById('text2').innerHTML=""
+	}
+	if(current_dialogue == 11){
+		window.location.href = "mainmap2.html";
+	}
+	
+  }
+  
+</script>
+  
+  
+  
+  
+  </body>
+</html>

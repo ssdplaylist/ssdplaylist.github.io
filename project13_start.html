@@ -3,6 +3,7 @@
 <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <head>
 	<link href='https://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css" type="text/css">
     <title>Project13</title>
 	<style>
 	body {
@@ -121,11 +122,16 @@
 	.timer {
 		position: absolute;
 		bottom: 40px;
-		left: 30%;
+		left: 35%;
 		font-size: 50px;
 		font-family: 'Impact';
 		color: #fff;
 		text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080, 0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;
+	}	
+	
+	.timer:hover {
+		color: #ff0070;
+		cursor:pointer
 	}	
 	
 
@@ -138,46 +144,22 @@ body{
 	</style>
   </head>
   <body>
-  
   <div class="crt centered">
 	<img  width="800px" src="img/title.png">
   </div>
   <div class="centered">
-	<p id="timer" class="timer"></p>
+	<p id="timer" class="timer">NEW GAME</p>
   </div>
   
   <script>
   
+  document.getElementById('timer').onclick=function(){
+	window.location.href = "previously.html";
+  }
 
   
 // Set the date we're counting down to
-var countDownDate = new Date("Dec 25, 2018 00:00:01").getTime();
 
-// Update the count down every 1 second
-var x = setInterval(function() {
-
-  // Get todays date and time
-  var now = new Date().getTime();
-
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // Display the result in the element with id="demo"
-  document.getElementById("timer").innerHTML = days + "D " + hours + "H "
-  + minutes + "M " + seconds + "S";
-
-  // If the count down is finished, write some text
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("timer").innerHTML = "EXPIRED";
-  }
-}, 1000);
 </script>
   
   

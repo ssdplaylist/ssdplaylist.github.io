@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+	<link href='https://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
+    <title>Project13</title>
+	<style>
+	body {
+		background-color:black
+	}
+	
+	
+	
+	
+
+	
+	.centered {
+		  position: fixed;
+		  height:600px;
+		  width:800px;
+		  top: 50%;
+		  left: 50%;
+		  /* bring your own prefixes */
+		  transform: translate(-50%, -50%);
+		}
+
+
+body{
+  background:black;
+  font-family: 'Varela', sans-serif;
+}
+
+#nextbutton{
+	position:absolute;
+	right:0px;
+	bottom:0px;
+	z-index:20;
+	color: #fff;
+		text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080, 0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;
+}
+
+#nextbutton:hover {
+		color: #ff0070;
+		cursor:pointer
+	}	
+
+#text1{
+	position:absolute;
+	top:5px;
+	left:5px;
+	width:300px;
+	font-size:20px;
+	color:black;
+	text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 55px #fff, 0 0 75px #fff;
+	
+}	
+
+#text2{
+	position:absolute;
+	top:5px;
+	right:5px;
+	width:300px;
+	font-size:20px;
+	color:black;
+	text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 55px #fff, 0 0 75px #fff;
+	
+}	
+
+#kenza{
+	position:absolute;
+	bottom:-5px;
+	right:0px
+}
+	
+	</style>
+  </head>
+  <body>
+  <div class="crt centered">
+	<a id="nextbutton" onclick="next()">Next</a>
+	<img id="background_image" width="800px" src="img/dialogue/magic/1.png">
+	<div id="text1">Salut les magiciens !</div>
+	<div id="text2"></div>
+	
+  </div>
+  
+  
+  <script src="dist/jquery.js"></script>
+  <script>
+  var current_dialogue = 1;
+  $('#kenza').hide()
+  function next(){
+	current_dialogue++
+	if(current_dialogue == 2){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="Hé l'Algérino ! Tu viens t'ambiancer ?"
+	}
+	if(current_dialogue == 3){
+		document.getElementById('text1').innerHTML="J'aimerais bien les gars mais j'ai besoin d'un service avant."
+		document.getElementById('text2').innerHTML=""
+		$('#kenza').show(2000)
+	}
+	if(current_dialogue == 4){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="C'est gâté !"
+	}
+	if(current_dialogue == 5){
+		document.getElementById('text1').innerHTML="..."
+		document.getElementById('text2').innerHTML=""
+	}
+	if(current_dialogue == 6){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="..."
+	}
+	if(current_dialogue == 7){
+		document.getElementById('text1').innerHTML="On est ensemble ... ?"
+		document.getElementById('text2').innerHTML=""
+	}
+	if(current_dialogue == 8){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="En tout cas !"
+	}
+	if(current_dialogue == 9){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="Ecoute, on va t'aider mais avant il faut que tu rendes un service aussi."
+	}
+	if(current_dialogue == 10){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="Notre concert commence dans 10 minutes mais on est pas bien positionés !"
+	}
+	if(current_dialogue == 11){
+		document.getElementById('text1').innerHTML="Comment ça ?"
+		document.getElementById('text2').innerHTML=""
+	}
+	if(current_dialogue == 11){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="Tu dois bien nous positioner quoi ! Il faut faire des lignes de 3 minimum !"
+	}
+	if(current_dialogue == 12){
+		document.getElementById('text1').innerHTML="Hein ?"
+		document.getElementById('text2').innerHTML=""
+	}
+	if(current_dialogue == 13){
+		window.location.href = "magicsystem.html";
+	}
+	
+  }
+  
+</script>
+  
+  
+  
+  
+  </body>
+</html>

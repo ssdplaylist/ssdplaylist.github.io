@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+	<link href='https://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
+    <title>Project13</title>
+	<style>
+	body {
+		background-color:black
+	}
+	
+	
+	
+	
+
+	
+	.centered {
+		  position: fixed;
+		  height:600px;
+		  width:800px;
+		  top: 50%;
+		  left: 50%;
+		  /* bring your own prefixes */
+		  transform: translate(-50%, -50%);
+		}
+
+
+body{
+  background:black;
+  font-family: 'Varela', sans-serif;
+}
+
+#nextbutton{
+	position:absolute;
+	right:0px;
+	bottom:0px;
+	z-index:20;
+	color: #fff;
+		text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080, 0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;
+}
+
+#nextbutton:hover {
+		color: #ff0070;
+		cursor:pointer
+	}	
+
+#text1{
+	position:absolute;
+	top:5px;
+	left:5px;
+	width:300px;
+	font-size:20px;
+	
+}	
+
+#text2{
+	position:absolute;
+	top:5px;
+	right:5px;
+	width:300px;
+	font-size:20px;
+	
+}	
+	
+	</style>
+  </head>
+  <body>
+  <div class="crt centered">
+	<a id="nextbutton" onclick="next()">Next</a>
+	<img id="background_image" width="800px" src="img/dialogue/sefyu1/1.png">
+	<div id="text1"></div>
+	<div id="text2">Et c'est comme ça que j'ai survécu à l'enfer africain ...</div>
+  </div>
+  
+  
+  
+  <script>
+  var current_dialogue = 1;
+  
+  function next(){
+	current_dialogue++
+	if(current_dialogue == 2){
+		document.getElementById('text1').innerHTML="..."
+		document.getElementById('text2').innerHTML=""
+	}
+	if(current_dialogue == 3){
+		document.getElementById('text2').innerHTML="Quoi ?"
+		document.getElementById('text1').innerHTML=""
+	}
+	if(current_dialogue == 4){
+		document.getElementById('text1').innerHTML="Non rien, mais ... des putains de lions ?"
+		document.getElementById('text2').innerHTML=""
+	}
+	if(current_dialogue == 5){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="Ouais mais ils étaient nombreux."
+	}
+	if(current_dialogue == 6){
+		document.getElementById('text1').innerHTML="..."
+		document.getElementById('text2').innerHTML="..."
+	}
+	if(current_dialogue == 7){
+		document.getElementById('text1').innerHTML="Ok, mais après ça ?"
+		document.getElementById('text2').innerHTML=""
+	}
+	if(current_dialogue == 8){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="Après, c'était le Proche Orient, Hiver 1978 ..."
+	}
+	if(current_dialogue == 9){
+		document.getElementById('text1').innerHTML="Attends comme tu pouvais être en 1994 au Rwanda et en .."
+		document.getElementById('text2').innerHTML=""
+		setTimeout(function() {
+			document.getElementById('text2').innerHTML="Ta gueule"
+			
+		}, 1000);
+		setTimeout(function() {
+			window.location.href = "sefyumiddleeast.html";
+			
+		}, 1000);
+		
+		
+	}
+	
+  }
+  
+</script>
+  
+  
+  
+  
+  </body>
+</html>

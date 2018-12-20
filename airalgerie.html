@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+	
+    <title>Project13</title>
+	<style>
+	body {
+		background-color:black
+		
+	}
+	canvas {
+		  position: fixed;
+		  height:600px;
+		  width:800px;
+		  top: 50%;
+		  left: 50%;
+		  /* bring your own prefixes */
+		  transform: translate(-50%, -50%);
+		 
+		}
+	
+	#distance{
+		position:absolute;
+		top:0px;
+		left:35%;
+		color:yellow
+	}	
+
+		
+		
+	</style>
+    </head>
+	<body>
+	<div id="distance">Distance du Caire : 3500km</div>
+	<script src="dist/phaser.min.js" type="text/javascript"></script>
+	<script src="dist/jquery.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7" type="text/javascript"></script>
+	<script>
+
+	var dist = 3500;
+	
+	var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render });
+
+var bg;
+var weapon;
+var plane;
+var cursors;	
+var fireButton;
+var enemies;
+var explosions;
+var gagne = false
+
+	
+function preload() {	
+	game.load.image('background', 'img/backgrounds/airalgerie.png');
+	game.load.image('plane', 'img/sprites/airalgerie100.png');
+	game.load.image('jenalee', 'img/sprites/airjenalee.png');
+	game.load.image('bullet', 'img/sprites/bullet.png');
+	game.load.spritesheet('kaboom', 'img/sprites/explode.png', 128, 128);
+}
+
+
+function create() {
+	bg = game.add.tileSprite(0, 0, 800, 600, 'background');
+	
+
+	//  An explosion pool
+    explosions = game.add.group();
+    explosions.createMultiple(30, 'kaboom');
+	
+	plane = this.add.sprite(0, 300, 'plane');
+	game.physics.arcade.enable(plane);
+	plane.body.collideWorldBounds = true;
+	cursors = this.input.keyboard.createCursorKeys();
+	
+	enemies = game.add.group();
+	enemies.enableBody = true;
+    enemies.physicsBodyType = Phaser.Physics.ARCADE;
+	enemies.setAll('outOfBoundsKill', true);
+    enemies.setAll('checkWorldBounds', true);
+	
+	plane.body.onCollide = new Phaser.Signal();
+	plane.body.onCollide.add(hitSprite, this);
+	
+	
+	
+	game.time.events.repeat(Phaser.Timer.SECOND * 0.8, 1000, addJenaLee, this);
+	
+	
+	
+	
+	
+	
+}
+
+
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function addJenaLee() {
+	dist = dist-25
+	if(dist == 0){
+		gagne = true
+		swal({
+			  type:"success",
+			  title: "Bravo!",
+			  text: "Le vol Air Algérie est bien arrivé au Caire en évitant les sbires kamikazes de Jena Lee",
+			  showCancelButton: false,
+			  confirmButtonColor: '#3085d6',
+			  confirmButtonText: "Continuer"
+				}).then((result) => {
+				if (result.value) {
+					window.location.reload()
+				}})
+	}
+	$('#distance').html('Distance du Caire : '+dist+'km')
+	var jenalee = game.add.sprite(700, getRandomInt(0,530), 'jenalee');
+	enemies.add(jenalee);
+	
+	jenalee.body.velocity.x = -500;
+	
+	
+}
+
+function hitSprite(evt,evt2){
+	if(gagne){}
+	else{
+	console.log('hit')
+	var explosion = explosions.getFirstExists(false);
+    explosion.reset(evt.body.x, evt.body.y);
+    explosion.play('kaboom', 30, false, true);
+	var explosion2 = explosions.getFirstExists(false);
+    explosion2.reset(evt2.body.x, evt2.body.y);
+    explosion2.play('kaboom', 30, false, true);
+	swal({
+			  type:"error",
+			  title: "Malheur !",
+			  text: "Un sbire kamikaze de Jena Lee a fait exploser le vol Air Algérie de l'Algérino ...",
+			  showCancelButton: false,
+			  confirmButtonColor: '#3085d6',
+			  confirmButtonText: "Recommencer"
+				}).then((result) => {
+				if (result.value) {
+					window.location.reload()
+				}})
+	}
+}
+
+
+function update() {
+	game.physics.arcade.collide(plane,enemies);
+	plane.body.velocity.y = 0;
+	
+	
+    if (cursors.up.isDown)
+    {
+        plane.body.velocity.y = -500;
+		
+    }
+    else if (cursors.down.isDown)
+    {
+        plane.body.velocity.y = 500;
+		
+    }
+	
+	
+	bg.tilePosition.x += -1;
+
+}
+
+function render() {
+
+    //game.debug.text("Drag the ball and release to launch", 32, 32);
+
+    //game.debug.bodyInfo(ball, 32, 64);
+
+    // game.debug.spriteInfo(ball, 32, 64);
+    // game.debug.text("Launch Velocity: " + parseInt(launchVelocity), 32, 250);
+
+}
+
+
+		</script>
+	</body>
+</html>

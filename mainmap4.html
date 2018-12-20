@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Project13</title>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+	<link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+   
+	<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+	<script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
+	<script src="js/dialogue.js"></script>
+
+	<style>
+	
+	
+	body {
+		background-color:black
+	}
+	#map{
+		  position: fixed;
+		  height:600px;
+		  width:800px;
+		  top: 50%;
+		  left: 50%;
+		  /* bring your own prefixes */
+		  transform: translate(-50%, -50%);
+		  cursor:url('img/sprites/cursor.gif'), auto;
+		}
+		
+	.leaflet-container {
+		cursor: url('img/sprites/cursor.gif'), auto;
+		}
+		
+	.leaflet-control {
+		display:none
+	}
+	
+	.leaflet-popup-close-button{
+		display:none
+	}
+	
+	.leaflet-popup-content-wrapper,.leaflet-popup-tip {
+    background: black;
+    color: yellow;
+	font-family:Impact;
+	font-style: italic;
+	font-size: 15px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.4)
+	}
+	
+	
+	/* Change cursor when mousing over clickable layer */
+.leaflet-interactive {
+  cursor: url('img/sprites/cursor_action.gif'), auto !important;
+}
+
+
+#chara1{
+	position:fixed;
+	bottom:0px;
+	right:0px;
+	display:none
+}
+
+#chara2{
+	position:fixed;
+	bottom:0px;
+	left:0px;
+	display:none
+}
+	
+#dialogueBox{
+	display:none;
+	padding:10px;
+	font-family:Arial;
+	background-color: rgba(0, 0, 0, 0.3);
+	color:white;
+	position: fixed;
+		  
+		  width:800px;
+		  top: 50%;
+		  left: 50%;
+		  /* bring your own prefixes */
+		  transform: translate(-50%, -50%);
+}	
+
+.chara1talking{
+text-align: left
+}
+
+.chara2talking{
+text-align: right
+}
+
+	</style>
+</head>
+<body>
+
+<div id="map">
+	
+</div>
+
+
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7" type="text/javascript"></script>
+<script>
+
+
+
+	
+	
+	var magic = L.icon({
+    iconUrl: 'img/sprites/bonus_khaled.png',
+    
+
+    iconSize:     [40, 120], // size of the icon
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+	});
+	
+	
+	var mymap = L.map('map',{
+		minZoom: 18,
+        maxZoom: 18
+	}).setView([43.269809,5.396065], 18);
+
+	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		maxZoom: 18,
+		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		id: 'mapbox.streets'
+	}).addTo(mymap);
+
+	
+	
+	
+	L.marker([43.215825,5.346467], {icon: magic}).addTo(mymap).on('click', dialogue);;
+	
+	
+	
+	var popup = L.popup();
+	
+	function onMapClick(e) {
+	e.latlng.lng = e.latlng.lng+0.0002
+	e.latlng.lat = e.latlng.lat+0.0001
+    popup	
+        .setLatLng(e.latlng)
+        .setContent(''+setPopupContent()+'')
+        .openOn(mymap);
+	}
+
+	function onMapUp(e) {
+	mymap.closePopup();
+	}
+
+	
+	function setPopupContent(){
+		var rnd = Math.floor(Math.random() * 32)
+		var phrases = [
+		'Va Bene !',
+		"J'bois une petite menthe à l'eau-ow-ow !",
+		'Je touche pas la coco !',
+		'Sur la tête de ma mère !',
+		"Elle veut l'Audi 4 anneaux !",
+		'Andalé ! Andalé !',
+		'Petit Polo Gabbana !',
+		'Quand on est pas jolie cousine on reste polie !',
+		"Fais péter le Dom Pé' !",
+		'Lalalilila yi, lalalilila ya !!',
+		"Elle veut l'Audi 4 anneaux !",
+		"J'suis calé, petit rosé !",
+		"Marseille Quartiers Nord !",
+		"Grosse poursuite en hélico-ow-ow !",
+		"Marseille c'est la folie !",
+		"Hé vas-y lâche une blonde !",
+		"HLM au bord de la mer !",
+		"J'suis dans mon bolide !",
+		"Elle m'a sorti son tralala !",
+		"J'suis posé à Marseille !",
+		"La classe Internazionale !",
+		"Aye Zinedine Zidane !",
+		"On va mettre la banane !",
+		"J'ai la classe à Manille !",
+		"Lalaii lalaii !",
+		"Le bolide vient d'Allemagne !",
+		"J'suis dans le cockpit je plane !",
+		"Liasse de billets violets !",
+		"J'vais te sortir du barrio !",
+		"J'suis dans ma favella !",
+		"Y'a des condés dans l'allée !",
+		"Gianni Versace tu m’reconnais !",
+		"Awin, awin !"
+
+		]
+		return phrases[rnd]
+	} 
+		
+	mymap.on('mousedown', onMapClick);
+	mymap.on('mouseup', onMapUp);
+	
+	function dialogue(){
+	
+	window.location.href = "dialoguekhaled.html";
+
+
+	
+	}
+	
+	
+	
+
+</script>
+
+
+
+</body>
+</html>

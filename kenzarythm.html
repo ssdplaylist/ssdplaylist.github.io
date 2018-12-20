@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+	<link href='https://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
+    <title>Project13</title>
+	<style>
+	body {
+		background-color:black
+	}
+	
+	
+
+
+	
+	.centered {
+		  position: fixed;
+		  height:600px;
+		  width:800px;
+		  top: 50%;
+		  left: 50%;
+		  /* bring your own prefixes */
+		  transform: translate(-50%, -50%);
+		}
+		
+
+body{
+  background:black;
+  font-family: 'Varela', sans-serif;
+}
+
+#kenzaenboite{
+	position:absolute;
+	bottom:-5px;
+	left:100px
+}
+#controls{
+	position:absolute;
+	bottom:0px;
+	right:0px;
+	background-color:black
+}
+#scorediv{
+	position:absolute;
+	bottom:100px;
+	right:0px;
+		font-size: 30px;
+		font-family: 'Arial';
+		color: #fff;
+		text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080, 0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;
+	
+}
+
+#stage{
+	position:absolute;
+	right:276px;
+	z-index:20
+	}
+
+#pitbull{
+	position:absolute;
+	right:0px;
+	z-index:3
+}
+	</style>
+  </head>
+  <body>
+  <div class="crt centered">
+	<img  id="background_image" width="524px" height="600px" src="img/backgrounds/kenza_bg4.gif">
+	
+  </div>
+  <div class="centered">
+	<div id="scorediv">Score: <b id="score">100</b></div>
+	<div id="kenzaenboite"><img height="500px" src="img/characters/kenzaenboite.gif"></div>
+	<div id="stage"></div>
+	<div id="pitbull"><img width="276px" src="img/characters/pitbull.jpg"></div>
+	<div id="controls">
+			<img id="left" src="img/arrows/staticLeft.png">
+			<img id="up" src="img/arrows/staticUp.png">
+			<img id="down" src="img/arrows/staticDown.png">
+			<img id="right" src="img/arrows/staticRight.png">
+	</div> <!-- ENDS #CONTROLS -->
+  </div>
+  
+  <script src="dist/jquery.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7" type="text/javascript"></script>
+  <script>
+// 'notes' to store Arrows  
+var notes = [];
+$('#pitbull').hide()
+
+var score = 100
+// ==== CLASS FOR ARROWS ==== //
+
+// 1. Direction of arrows
+// 2. jQuery img that links to direction bottom
+// 3. Destroy when it arrow gets to the 
+// 4. Explode when arrow gets to the bottom
+
+// Class Arrow
+function Arrow(direction) {
+
+	// CSS spacings for the arrows //
+	var xPos = null;
+
+	switch(direction) {
+
+		case "left" : xPos = "0px";
+		break;
+
+		case "up" : xPos = "67px";
+		break;
+
+		case "down" : xPos = "137px";
+		break;
+
+		case "right" : xPos = "207px";
+		break;
+
+	}
+
+	this.direction = direction;
+	this.image = $("<img src='img/arrows/" + direction + ".gif'/>");
+	this.image.css({
+
+		position: "absolute",
+		top: "0px",
+		left: xPos
+
+	});
+
+	$('#stage').append(this.image);
+
+}// ends CLASS Arrow
+
+// To enable animating the arrows
+Arrow.prototype.step = function() {
+
+	// Controls the speed of the arrows
+	this.image.css("top", "+=4px");
+
+};
+
+// Deletes arrows when they get to bottom of page
+Arrow.prototype.destroy = function() {
+
+	// removes the image of the DOM
+	this.image.remove();
+
+	// Removes the note/arrow from memory/array
+	notes.splice(0,1);
+	
+	score = score-20
+	
+	if(score == 1000){
+		arrowSpawnRate = 40
+	}
+	if(score == 2000){
+		arrowSpawnRate = 30
+	}
+	
+	$('#score').html(score)
+	
+	$('#scorediv').css('color','red')
+	$('#scorediv').css('font-size','32px')
+	
+	setTimeout(function() {
+      
+		$('#scorediv').css('color','white')
+		$('#scorediv').css('font-size','30px')
+    }, 100);
+	
+	
+
+};
+
+// Explodes arrow when hit
+Arrow.prototype.explode = function() {
+	this.image.remove();
+	$('#scorediv').css('color','lime')
+	$('#scorediv').css('font-size','32px')
+	score = score+20
+	
+	if (score == 3500){
+		swal({
+			  type:"success",
+			  title: "Bravo !",
+			  text: "L'Algé à réussi à montrer ses talents de danseurs à Kenza !",
+			  showCancelButton: false,
+			  confirmButtonColor: '#3085d6',
+			  confirmButtonText: "Continuer"
+				}).then((result) => {
+				if (result.value) {
+					window.location.href = "dialoguekenza2.html";
+				}})
+	}
+	
+	if(score == 500){
+		arrowSpawnRate = 30
+		$('#background_image').attr('src','img/backgrounds/kenza_bg.gif')
+		$('#background_image').attr('src','img/backgrounds/kenza_bg2.gif')
+		$( "#pitbull" ).show( 6000, function() {
+		$( "#pitbull" ).hide( 6000, function() {
+		$('#pitbull').html("<img width='276px' src='img/characters/pitbull3.jpg'>")
+	  });
+	  });
+	}
+	
+	
+	if(score == 140){
+		$( "#pitbull" ).show( 6000, function() {
+		$( "#pitbull" ).hide( 6000, function() {
+		$('#pitbull').html("<img width='276px' src='img/characters/pitbull2.jpg'>")
+	  });
+	  });
+	}
+
+	if(score == 1000){
+		$('#background_image').attr('src','img/backgrounds/kenza_bg3.gif')
+		$( "#pitbull" ).show( 6000, function() {
+		$( "#pitbull" ).hide( 6000, function() {
+		$('#pitbull').html("<img width='276px' src='img/characters/pitbull6.jpg'>")
+	  });
+	  });
+	}
+	
+	if(score == 1500){
+		$('#background_image').attr('src','img/backgrounds/kenza_bg3.gif')
+		$( "#pitbull" ).show( 6000, function() {
+		$( "#pitbull" ).hide( 6000, function() {
+		$('#pitbull').html("<img width='276px' src='img/characters/pitbull4.jpg'>")
+	  });
+	  });
+	}
+	
+	if(score == 2000){
+		arrowSpawnRate = 20
+		$('#background_image').attr('src','img/backgrounds/kenza_bg5.gif')
+		$( "#pitbull" ).show( 6000, function() {
+		$( "#pitbull" ).hide( 6000, function() {
+		$('#pitbull').html("<img width='276px' src='img/characters/pitbull5.jpg'>")
+	  });
+	  });
+	}
+	
+	if(score == 2800){
+		
+		$( "#pitbull" ).show( 6000, function() {
+		$( "#pitbull" ).hide( 6000, function() {
+		
+	  });
+	  });
+	}
+	
+	
+	
+	
+	$('#score').html(score)
+	setTimeout(function() {
+      
+		$('#scorediv').css('color','white')
+		$('#scorediv').css('font-size','30px')
+    }, 100);
+
+};
+
+
+
+// For random arrows
+var randNum = 0;
+
+// Frame increasing
+var frame = 0;
+
+// Determines the speed of notes
+var arrowSpawnRate = 40;
+
+
+// Random generator for arrows
+function randomGen() {
+
+	// Randomizes between 1 and 4
+	randNum = Math.floor(Math.random() * 4) + 1;
+
+	if (randNum === 1) {
+
+		notes.push(new Arrow("left"));
+
+	}
+	if (randNum === 2) {
+
+		notes.push(new Arrow("right"));
+
+	}
+	if (randNum === 3) {
+
+		notes.push(new Arrow("up"));
+		
+	}
+	if (randNum === 4) {
+
+		notes.push(new Arrow("down"));
+
+	}
+
+}// ends randomGen()
+
+
+// Render function //
+function render() {
+
+	if (frame++ % arrowSpawnRate === 0) {
+
+		randomGen();
+
+	}
+
+	// Animate arrows showering down //
+	for (var i = notes.length - 1; i >= 0; i--) {
+
+		notes[i].step();
+
+		// Check for cleanup
+		if (notes[i].image.position().top > 615) {
+
+			notes[i].destroy();
+
+		}
+
+	}
+
+}// ends render()
+
+
+
+// jQuery to animate arrows //
+$(document).ready(function () {
+
+	// shim layer with setTimeout fallback
+	window.requestAnimFrame = (function() {
+
+		return window.requestAnimationFrame ||
+
+		window.webkitRequestAnimationFrame ||
+
+		window.mozRequestAnimationFrame ||
+
+		function(callback) {
+
+			window.setTimeout(callback, 40 / 75);
+
+		};
+
+	})();
+
+	/*	place the rAF *before* the render() 
+		to assure as close to 60fps with the 
+		setTimeout fallback.					*/
+
+	// Infinte loop for game play
+	(function animloop() {
+
+		requestAnimFrame(animloop);
+
+		render();
+
+	})();// ends (function animloop() )
+
+
+});// ends $(doc).ready
+
+
+
+// Listening for when the key is pressed
+$(document).keydown( function(event) {
+	
+	for (var i = 0; i < notes.length; i++) {
+	
+			
+
+		if (event.keyCode == 37 && notes[i].direction == "left") {
+
+			if (notes[i].image.position().top > 490 && notes[i].image.position().top < 530) {
+
+				notes[i].explode();
+
+			}
+			
+		}
+		if (event.keyCode == 38 && notes[i].direction == "up") {
+
+			if (notes[i].image.position().top > 490 && notes[i].image.position().top < 530) {
+				
+				notes[i].explode();
+
+			}
+
+		}
+		if (event.keyCode == 40 && notes[i].direction == "down") {
+
+			if (notes[i].image.position().top > 490 && notes[i].image.position().top < 530) {
+				
+				notes[i].explode();
+
+			}
+
+		}
+		if (event.keyCode == 39 && notes[i].direction == "right") {
+
+			if (notes[i].image.position().top > 490 && notes[i].image.position().top < 530) {
+				
+				notes[i].explode();
+
+			}
+
+		}
+
+	}// ends loop
+
+});// ends $(doc).keyup
+
+  
+</script>
+  
+  
+  
+  
+  </body>
+</html>

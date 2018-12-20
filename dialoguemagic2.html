@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+	<link href='https://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
+    <title>Project13</title>
+	<style>
+	body {
+		background-color:black
+	}
+	
+	
+	
+	
+
+	
+	.centered {
+		  position: fixed;
+		  height:600px;
+		  width:800px;
+		  top: 50%;
+		  left: 50%;
+		  /* bring your own prefixes */
+		  transform: translate(-50%, -50%);
+		}
+
+
+body{
+  background:black;
+  font-family: 'Varela', sans-serif;
+}
+
+#nextbutton{
+	position:absolute;
+	right:0px;
+	bottom:0px;
+	z-index:20;
+	color: #fff;
+		text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080, 0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;
+}
+
+#nextbutton:hover {
+		color: #ff0070;
+		cursor:pointer
+	}	
+
+#text1{
+	position:absolute;
+	top:5px;
+	left:5px;
+	width:300px;
+	font-size:20px;
+	color:black;
+	text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 55px #fff, 0 0 75px #fff;
+	
+}	
+
+#text2{
+	position:absolute;
+	top:5px;
+	right:5px;
+	width:300px;
+	font-size:20px;
+	color:black;
+	text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 55px #fff, 0 0 75px #fff;
+	
+}	
+
+#kenza{
+	position:absolute;
+	bottom:-5px;
+	right:0px
+}
+	
+	</style>
+  </head>
+  <body>
+  <div class="crt centered">
+	<a id="nextbutton" onclick="next()">Next</a>
+	<img id="background_image" width="800px" src="img/dialogue/magic/1.png">
+	<div id="text1">Et voila!</div>
+	<div id="text2"></div>
+	
+  </div>
+  
+  
+  <script src="dist/jquery.js"></script>
+  <script>
+  var current_dialogue = 1;
+  $('#kenza').hide()
+  function next(){
+	current_dialogue++
+	if(current_dialogue == 2){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="Merci l'Algé ! Le concert était pas gâté grâce à toi !"
+	}
+	if(current_dialogue == 3){
+		document.getElementById('text1').innerHTML="De rien les gars."
+		document.getElementById('text2').innerHTML=""
+		$('#kenza').show(2000)
+	}
+	if(current_dialogue == 4){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="Ecoute, on est ensemble, on va t'aider mais il faut qu'on soit plus nombreux."
+	}
+	if(current_dialogue == 5){
+		document.getElementById('text1').innerHTML="Je sais, je sais mais je ne sais pas qui aller voir maintenant."
+		document.getElementById('text2').innerHTML=""
+	}
+	if(current_dialogue == 6){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="On te conseille d'aller faire un tour aux Goudes, y'a toujours du beau monde là bas."
+	}
+	if(current_dialogue == 7){
+		window.location.href = "mainmap4.html";
+	}
+	
+	
+  }
+  
+</script>
+  
+  
+  
+  
+  </body>
+</html>
