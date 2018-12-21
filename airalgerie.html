@@ -32,13 +32,13 @@
 	</style>
     </head>
 	<body>
-	<div id="distance">Distance du Caire : 3500km</div>
+	<div id="distance">Distance du Caire : 2500km</div>
 	<script src="dist/phaser.min.js" type="text/javascript"></script>
 	<script src="dist/jquery.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7" type="text/javascript"></script>
 	<script>
 
-	var dist = 3500;
+	var dist = 2500;
 	
 	var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render });
 
@@ -115,7 +115,7 @@ function addJenaLee() {
 			  confirmButtonText: "Continuer"
 				}).then((result) => {
 				if (result.value) {
-					window.location.reload()
+					window.location.href = "dialogueiam.html";
 				}})
 	}
 	$('#distance').html('Distance du Caire : '+dist+'km')

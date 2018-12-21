@@ -77,8 +77,8 @@ body{
   <body>
   <div class="crt centered">
 	<a id="nextbutton" onclick="next()">Next</a>
-	<img id="background_image" width="800px" src="img/dialogue/khaled/1.png">
-	<div id="text1">Khaled!</div>
+	<img id="background_image" width="800px" src="img/dialogue/khaled/2.png">
+	<div id="text1">Zarma Khaled qu'est ce qui a ?</div>
 	<div id="text2"></div>
 	
   </div>
@@ -92,35 +92,59 @@ body{
 	current_dialogue++
 	if(current_dialogue == 2){
 		document.getElementById('text1').innerHTML=""
-		document.getElementById('text2').innerHTML="! نبغيك عايشة ونموت عليك"
+		document.getElementById('text2').innerHTML="Désolé l'Algérino, j'ai eu une sorte de traversée du désert, ça arrive à tous les grands artistes tu sais ..."
 	}
 	if(current_dialogue == 3){
-		document.getElementById('text1').innerHTML="Euh ouais."
+		document.getElementById('text1').innerHTML="Euh ouais, j'ai eu aussi, une fois."
 		document.getElementById('text2').innerHTML=""
 		$('#kenza').show(2000)
 	}
 	if(current_dialogue == 4){
 		document.getElementById('text1').innerHTML=""
-		document.getElementById('text2').innerHTML=" !! هادي قصية حياتي وحبي"
+		document.getElementById('text2').innerHTML="Qu'est ce qui t'amènes aux Goudes ?"
 	}
 	if(current_dialogue == 5){
-		document.getElementById('text1').innerHTML="Refré j'comprends rien ... Pourquoi t'as une casquette 51 ?"
+		document.getElementById('text1').innerHTML="J'ai besoin de toi pour m'aider à vaincre Jena Lee, ça va plus là, sa chanson de merde et tout."
 		document.getElementById('text2').innerHTML=""
 	}
 	if(current_dialogue == 6){
 		document.getElementById('text1').innerHTML=""
-		document.getElementById('text2').innerHTML="... تمنيت نعيش معك غير انت"
+		document.getElementById('text2').innerHTML="L'algérino, je ne peux rien pour toi, tu dois vaincre tes démons toi même."
 	}
 	if(current_dialogue == 7){
-		document.getElementById('text1').innerHTML="Et tu joues à la pétanque maintenant ?"
+		document.getElementById('text1').innerHTML="Non mais c'est vrai, elle a genre les yeux rouges et tout ..."
 		document.getElementById('text2').innerHTML=""
 	}
 	if(current_dialogue == 8){
 		document.getElementById('text1').innerHTML=""
-		document.getElementById('text2').innerHTML="Ci la vie !!!!!!"
+		document.getElementById('text2').innerHTML="Tu dois retrouver confiance en toi, et retrouver l'essence même du rap marseillais. "
 	}
 	if(current_dialogue == 9){
-		window.location.href = "khaled51.html";
+		document.getElementById('text1').innerHTML="Je sais, mais je sais pas ou ils sont ..."
+		document.getElementById('text2').innerHTML=""
+	}
+	if(current_dialogue == 10){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="Tu n'es pas au courant ?"
+	}
+	if(current_dialogue == 11){
+		document.getElementById('text1').innerHTML="Zarma mais personne me dit jamais rien wesh !"
+		document.getElementById('text2').innerHTML=""
+	}
+	if(current_dialogue == 12){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="Ils refont leur concert aux Pyramides."
+	}
+	if(current_dialogue == 13){
+		document.getElementById('text1').innerHTML="Aux pyramides ? En Egypte ?? Mais comment je vais aller là bas ???"
+		document.getElementById('text2').innerHTML=""
+	}
+	if(current_dialogue == 14){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="Comme tout le monde, en avion."
+	}
+	if(current_dialogue == 15){
+		window.location.href = "mainmap5.html";
 	}
 	
 	

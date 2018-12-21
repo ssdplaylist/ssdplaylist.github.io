@@ -55,6 +55,13 @@ body{
 	
 }	
 
+#kenza{
+	position:absolute;
+	bottom:-5px;
+	right:0px
+}
+	
+
 #text2{
 	position:absolute;
 	top:5px;
@@ -66,10 +73,15 @@ body{
 	
 }	
 
-#kenza{
+#explo1{
 	position:absolute;
-	bottom:-5px;
-	right:0px
+	bottom:300px;
+	right:80px
+}
+#explo2{
+	position:absolute;
+	bottom:300px;
+	right:130px
 }
 	
 	</style>
@@ -77,53 +89,75 @@ body{
   <body>
   <div class="crt centered">
 	<a id="nextbutton" onclick="next()">Next</a>
-	<img id="background_image" width="800px" src="img/dialogue/khaled/1.png">
-	<div id="text1">Khaled!</div>
+	<img id="background_image" width="800px" src="img/backgrounds/finish2.png">
+	<div id="text1">...</div>
 	<div id="text2"></div>
 	
+	<div id="kenza"><img height="420px" src="img/characters/evilpitbull.png"></div>
   </div>
   
   
   <script src="dist/jquery.js"></script>
   <script>
   var current_dialogue = 1;
-  $('#kenza').hide()
+   $('#kenza').hide()
   function next(){
 	current_dialogue++
 	if(current_dialogue == 2){
-		document.getElementById('text1').innerHTML=""
-		document.getElementById('text2').innerHTML="! نبغيك عايشة ونموت عليك"
+		document.getElementById('text1').innerHTML="Bon, ça c'est fait"
+		document.getElementById('text2').innerHTML=""
 	}
 	if(current_dialogue == 3){
-		document.getElementById('text1').innerHTML="Euh ouais."
-		document.getElementById('text2').innerHTML=""
-		$('#kenza').show(2000)
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="Well done, l'Algé ..."
 	}
 	if(current_dialogue == 4){
-		document.getElementById('text1').innerHTML=""
-		document.getElementById('text2').innerHTML=" !! هادي قصية حياتي وحبي"
+		document.getElementById('text1').innerHTML="Hein ?"
+		document.getElementById('text2').innerHTML=""
 	}
 	if(current_dialogue == 5){
-		document.getElementById('text1').innerHTML="Refré j'comprends rien ... Pourquoi t'as une casquette 51 ?"
+		$('#kenza').show(2000)
+		document.getElementById('text1').innerHTML="AAAAhhh  !! Pitbull !"
 		document.getElementById('text2').innerHTML=""
 	}
 	if(current_dialogue == 6){
 		document.getElementById('text1').innerHTML=""
-		document.getElementById('text2').innerHTML="... تمنيت نعيش معك غير انت"
+		document.getElementById('text2').innerHTML="Did you really thought that this girl was strong enough to become a powerfull daemon ?"
 	}
 	if(current_dialogue == 7){
-		document.getElementById('text1').innerHTML="Et tu joues à la pétanque maintenant ?"
+		document.getElementById('text1').innerHTML="... euh yes, I donte enderstande"
 		document.getElementById('text2').innerHTML=""
 	}
 	if(current_dialogue == 8){
 		document.getElementById('text1').innerHTML=""
-		document.getElementById('text2').innerHTML="Ci la vie !!!!!!"
+		document.getElementById('text2').innerHTML="... you don't speak english ?"
 	}
 	if(current_dialogue == 9){
-		window.location.href = "khaled51.html";
+		document.getElementById('text1').innerHTML="... yes please"
+		document.getElementById('text2').innerHTML="..."
 	}
-	
-	
+	if(current_dialogue == 10){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="... Who is this guy seriously ? Well, I have to continue the destruction of french songs and culture. See you later, l'Algé ..."
+	}
+	if(current_dialogue == 11){
+		document.getElementById('text1').innerHTML="Yes ! Good Bye !"
+		document.getElementById('text2').innerHTML=""
+		$('#kenza').hide(1000)
+	}
+	if(current_dialogue == 12){
+		document.getElementById('text1').innerHTML="..."
+		document.getElementById('text2').innerHTML=""
+		$('#kenza').hide(1000)
+	}
+	if(current_dialogue == 13){
+		document.getElementById('text1').innerHTML="Putain j'ai rien compris ..."
+		document.getElementById('text2').innerHTML=""
+		$('#kenza').hide(1000)
+	}
+	if(current_dialogue == 14){
+		window.location.href = "credits.html";
+	}
   }
   
 </script>

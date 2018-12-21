@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+	<link href='https://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
+    <title>Project13</title>
+	<style>
+	body {
+		background-color:black
+	}
+	
+	
+	
+	
+
+	
+	.centered {
+		  position: fixed;
+		  height:600px;
+		  width:800px;
+		  top: 50%;
+		  left: 50%;
+		  /* bring your own prefixes */
+		  transform: translate(-50%, -50%);
+		}
+
+
+body{
+  background:black;
+  font-family: 'Varela', sans-serif;
+}
+
+#nextbutton{
+	position:absolute;
+	right:0px;
+	bottom:0px;
+	z-index:20;
+	color: #fff;
+		text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080, 0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;
+}
+
+#nextbutton:hover {
+		color: #ff0070;
+		cursor:pointer
+	}	
+
+#text1{
+	position:absolute;
+	top:5px;
+	left:5px;
+	width:300px;
+	font-size:20px;
+	color:black;
+	text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 55px #fff, 0 0 75px #fff;
+	
+}	
+
+#text2{
+	position:absolute;
+	top:5px;
+	right:5px;
+	width:300px;
+	font-size:20px;
+	color:black;
+	text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 55px #fff, 0 0 75px #fff;
+	
+}	
+
+#kenza{
+	position:absolute;
+	bottom:-5px;
+	right:0px
+}
+	
+	</style>
+  </head>
+  <body>
+  <div class="crt centered">
+	<a id="nextbutton" onclick="next()">Next</a>
+	<img id="background_image" width="800px" src="img/dialogue/celine/1.png">
+	<div id="text1">Céline ?</div>
+	<div id="text2"></div>
+	
+  </div>
+  
+  
+  <script src="dist/jquery.js"></script>
+  <script>
+  var current_dialogue = 1;
+  $('#kenza').hide()
+  function next(){
+	current_dialogue++
+	if(current_dialogue == 2){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="Je t'attendais l'Algérino."
+	}
+	if(current_dialogue == 3){
+		document.getElementById('text1').innerHTML="Mais ... tu es morte ?"
+		document.getElementById('text2').innerHTML=""
+		
+	}
+	if(current_dialogue == 4){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="Non ... "
+	}
+	if(current_dialogue == 5){
+		document.getElementById('text1').innerHTML="Mais alors, qu'est ce que tu fais ici ?"
+		document.getElementById('text2').innerHTML=""
+	}
+	if(current_dialogue == 6){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="C'est ici que je vis."
+	}
+	if(current_dialogue == 7){
+		document.getElementById('text1').innerHTML="Mais alors, ça veut dire que ..."
+		document.getElementById('text2').innerHTML=""
+	}
+	if(current_dialogue == 8){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="Oui l'Algé ..."
+	}
+	if(current_dialogue == 9){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="Le Dieu que tu as prié jour et nuit pour devenir un grand musicien, c'était moi."
+	}
+	if(current_dialogue == 10){
+		document.getElementById('text1').innerHTML="Quoi ? Mais ..."
+		document.getElementById('text2').innerHTML=""
+	}
+	if(current_dialogue == 11){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="Tu es fort l'Algérino ! Je t'ai suivi depuis tes débuts au bendo avec Saïd et Kassim, tu étais si jeune ... et regardes ou tu es maintenant !"
+	}
+	if(current_dialogue == 12){
+		document.getElementById('text1').innerHTML="C'est de la folie ! Mais qu'est-ce que ça veut dire alors ? Suivre mes rêves ? Découvrir qui je suis ?"
+		document.getElementById('text2').innerHTML=""
+	}
+	if(current_dialogue == 13){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="Tu as ta réponse."
+	}
+	if(current_dialogue == 14){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML=""
+	}
+	if(current_dialogue == 15){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="Tu fais partie des grands de ce monde Samir."
+	}
+	if(current_dialogue == 16){
+		document.getElementById('text1').innerHTML="Ouais m'appelle pas Samir en fait."
+		document.getElementById('text2').innerHTML=""
+	}
+	if(current_dialogue == 17){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="Toi seul à le pouvoir de sauver Marseille et la France, tu dois te confronter à Jena Lee seul !"
+	}
+	if(current_dialogue == 18){
+		document.getElementById('text1').innerHTML="Ok, je vais essayer, je vais sortir la bagnole et ça va winer."
+		document.getElementById('text2').innerHTML=""
+	}
+	if(current_dialogue == 19){
+		window.location.href = "beforeboss.html";
+	}
+	
+	
+  }
+  
+</script>
+  
+  
+  
+  
+  </body>
+</html>

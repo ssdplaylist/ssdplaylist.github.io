@@ -66,10 +66,15 @@ body{
 	
 }	
 
-#kenza{
+#explo1{
 	position:absolute;
-	bottom:-5px;
-	right:0px
+	bottom:300px;
+	right:80px
+}
+#explo2{
+	position:absolute;
+	bottom:300px;
+	right:130px
 }
 	
 	</style>
@@ -77,53 +82,43 @@ body{
   <body>
   <div class="crt centered">
 	<a id="nextbutton" onclick="next()">Next</a>
-	<img id="background_image" width="800px" src="img/dialogue/khaled/1.png">
-	<div id="text1">Khaled!</div>
+	<img id="background_image" width="800px" src="img/backgrounds/finish.png">
+	<div id="text1">Crève raclure !</div>
 	<div id="text2"></div>
-	
+	<div id="explo1"><img src="img/sprites/explo.gif"></div>
+	<div id="explo2"><img src="img/sprites/explo.gif"></div>
   </div>
   
   
   <script src="dist/jquery.js"></script>
   <script>
   var current_dialogue = 1;
-  $('#kenza').hide()
+  
   function next(){
 	current_dialogue++
 	if(current_dialogue == 2){
 		document.getElementById('text1').innerHTML=""
-		document.getElementById('text2').innerHTML="! نبغيك عايشة ونموت عليك"
+		document.getElementById('text2').innerHTML="AAAAARRRRGGGHHHH !!!!"
 	}
 	if(current_dialogue == 3){
-		document.getElementById('text1').innerHTML="Euh ouais."
+		document.getElementById('text1').innerHTML="Retourne chez ta mère avec ton US BOY !"
 		document.getElementById('text2').innerHTML=""
-		$('#kenza').show(2000)
 	}
 	if(current_dialogue == 4){
 		document.getElementById('text1').innerHTML=""
-		document.getElementById('text2').innerHTML=" !! هادي قصية حياتي وحبي"
+		document.getElementById('text2').innerHTML="BRRARAAAGGAAGAG !!!"
 	}
 	if(current_dialogue == 5){
-		document.getElementById('text1').innerHTML="Refré j'comprends rien ... Pourquoi t'as une casquette 51 ?"
-		document.getElementById('text2').innerHTML=""
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="BRRARAAAG !!"
+	}
+	if(current_dialogue == 5){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="BRRARAAAG !!"
 	}
 	if(current_dialogue == 6){
-		document.getElementById('text1').innerHTML=""
-		document.getElementById('text2').innerHTML="... تمنيت نعيش معك غير انت"
+		window.location.href = "finish2.html";
 	}
-	if(current_dialogue == 7){
-		document.getElementById('text1').innerHTML="Et tu joues à la pétanque maintenant ?"
-		document.getElementById('text2').innerHTML=""
-	}
-	if(current_dialogue == 8){
-		document.getElementById('text1').innerHTML=""
-		document.getElementById('text2').innerHTML="Ci la vie !!!!!!"
-	}
-	if(current_dialogue == 9){
-		window.location.href = "khaled51.html";
-	}
-	
-	
   }
   
 </script>

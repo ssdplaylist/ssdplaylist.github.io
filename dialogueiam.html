@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+	<link href='https://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
+    <title>Project13</title>
+	<style>
+	body {
+		background-color:black
+	}
+	
+	
+	
+	
+
+	
+	.centered {
+		  position: fixed;
+		  height:600px;
+		  width:800px;
+		  top: 50%;
+		  left: 50%;
+		  /* bring your own prefixes */
+		  transform: translate(-50%, -50%);
+		}
+
+
+body{
+  background:black;
+  font-family: 'Varela', sans-serif;
+}
+
+#nextbutton{
+	position:absolute;
+	right:0px;
+	bottom:0px;
+	z-index:20;
+	color: #fff;
+		text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080, 0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;
+}
+
+#nextbutton:hover {
+		color: #ff0070;
+		cursor:pointer
+	}	
+
+#text1{
+	position:absolute;
+	top:5px;
+	left:5px;
+	width:300px;
+	font-size:20px;
+	color:black;
+	text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 55px #fff, 0 0 75px #fff;
+	
+}	
+
+#text2{
+	position:absolute;
+	top:5px;
+	right:5px;
+	width:300px;
+	font-size:20px;
+	color:black;
+	text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 55px #fff, 0 0 75px #fff;
+	
+}	
+
+#kenza{
+	position:absolute;
+	bottom:-5px;
+	right:0px
+}
+	
+	</style>
+  </head>
+  <body>
+  <div class="crt centered">
+	<a id="nextbutton" onclick="next()">Next</a>
+	<img id="background_image" width="800px" src="img/dialogue/iam/1.png">
+	<div id="text1">Wesh, c'était chaud ...</div>
+	<div id="text2"></div>
+	<div id="kenza"><img height="420px" src="img/characters/iam.png"></div>
+  </div>
+  
+  
+  <script src="dist/jquery.js"></script>
+  <script>
+  var current_dialogue = 1;
+  $('#kenza').hide()
+  function next(){
+	current_dialogue++
+	if(current_dialogue == 2){
+		document.getElementById('text1').innerHTML="Bon ... j'espère que je suis au bon endroit."
+		document.getElementById('text2').innerHTML=""
+	}
+	if(current_dialogue == 3){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="Bonsoir l'Algérino."
+		$('#kenza').show(2000)
+	}
+	if(current_dialogue == 4){
+		document.getElementById('text1').innerHTML="Shurik'n ! Akhenaton !"
+		document.getElementById('text2').innerHTML=""
+	}
+	if(current_dialogue == 5){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="On est ravis de te voir ici, tu viens pour le concert ?"
+	}
+	if(current_dialogue == 6){
+		document.getElementById('text1').innerHTML="Ouais, entre autres. J'ai surtout besoin de votre aide, c'est la zermi à Marseille ..."
+		document.getElementById('text2').innerHTML=""
+	}
+	if(current_dialogue == 7){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="Nous sommes au courant ... Mais comme te l'a dit Khaled51, tu dois vaincre tes peurs toi même."
+	}
+	if(current_dialogue == 8){
+		document.getElementById('text1').innerHTML="Peurs ? J'ai peur de rien moi."
+		document.getElementById('text2').innerHTML=""
+	}
+	if(current_dialogue == 9){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="L'Algérino, on t'aime bien mais il faut voir la vérité en face."
+	}
+	if(current_dialogue == 10){
+		document.getElementById('text1').innerHTML="?"
+		document.getElementById('text2').innerHTML=""
+	}
+	if(current_dialogue == 11){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="Tu sais pas faire de textes ou plus de 2 phrases s'enchainent."
+	}
+	if(current_dialogue == 12){
+		document.getElementById('text1').innerHTML="Quoi ? Trop pas ! Ziva ! Starfallah !"
+		document.getElementById('text2').innerHTML=""
+	}
+	if(current_dialogue == 13){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="Tu dois step up ton rap game, écrire des vrais textes, pas juste une succession de punchline qui veulent rien dire."
+	}
+	if(current_dialogue == 14){
+		document.getElementById('text1').innerHTML=" ??? Comment ça rien dire ? Ptin jsuis vnr"
+		document.getElementById('text2').innerHTML=""
+	}
+	if(current_dialogue == 15){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="Ok, alors dis nous, tu veux dire quoi par ''Aye ! L'Algé Montana!'' ?"
+	}
+	if(current_dialogue == 16){
+		document.getElementById('text1').innerHTML="... nan mais ça c'est le mauvais exemple, c'est genre je suis un gangster..."
+		document.getElementById('text2').innerHTML=""
+	}
+	if(current_dialogue == 17){
+		document.getElementById('text1').innerHTML=""
+		document.getElementById('text2').innerHTML="Ecoutes, on va t'apprendre à faire du texte, mais avant tu dois réussir une épreuve."
+	}
+	if(current_dialogue == 18){
+		window.location.href = "iamdemain.html";
+	}
+	
+	
+  }
+  
+</script>
+  
+  
+  
+  
+  </body>
+</html>

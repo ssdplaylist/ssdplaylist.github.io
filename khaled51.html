@@ -37,7 +37,7 @@
 	</style>
     </head>
 	<body>
-	<div id="shotsleft">Tirs restants : 8</div>
+	<div id="shotsleft">Tirs restants : 10</div>
 	<div id="ballsleft">Boules restantes : 10</div>
 	<script src="dist/phaser.min.js" type="text/javascript"></script>
 	<script src="dist/jquery.js"></script>
@@ -72,7 +72,7 @@ function preload() {
 }
 
 var arrow;
-var shotsleft = 8;
+var shotsleft = 10;
 var ballsleft = 10;
 var ball;
 var other_ball,other_ball1,other_ball2,other_ball3,other_ball4,other_ball5,other_ball6,other_ball7,other_ball8,other_ball9;
@@ -201,8 +201,9 @@ function hitSprite (evt,evt2) {
 			  confirmButtonText: "Continuer"
 				}).then((result) => {
 				if (result.value) {
-					location.reload()
-				}})
+					window.location.href = "dialoguekhaled2.html";
+				}	
+				})
 		}
 	}
 	

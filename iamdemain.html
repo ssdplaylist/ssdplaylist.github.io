@@ -41,7 +41,7 @@
 
 <!-- SALUT C'EST JEAN-JACQUES GOLDMAN ! LE SUIS PRISONIER DANS TON ORDINATEUR DEPUIS BIENTOT 22 ANS ! SI TU M'AIDES A SORTIR JE T'AIDERAIS A REMETTRE LES PAROLES DANS L'ORDRE ! -->
 
-<!-- LE VIRUS INFORMATIQUE QUI M'EMPECHE DE SORTIR SE TROUVE ICI :         FAIS VITE ! IL NE ME RESTE PLUS BEAUCOUP DE TEMPS !  -->
+<!-- LE VIRUS INFORMATIQUE QUI M'EMPECHE DE SORTIR SE TROUVE ICI :  https://ssdplaylist.github.io/jjcoding.html       FAIS VITE ! IL NE ME RESTE PLUS BEAUCOUP DE TEMPS !  -->
 
 
 
@@ -128,9 +128,29 @@ li:hover {
   
   <script src="dist/jquery.js"></script>
   <script src="dist/jquery-ui.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7" type="text/javascript"></script>
   <script>
   
-
+swal({
+			 
+			  title: "Cours de rap",
+			  text: "L'Algérino doit améliorer ses skills en lyrics. Remets dans l'ordre les paroles de la fameuse chanson d'IAM : Demain c'est loin.",
+			  showCancelButton: false,
+			  confirmButtonColor: '#3085d6',
+			  confirmButtonText: "Commencer"
+				}).then((result) => {
+				if (result.value) {
+					 
+ setTimeout(function(){ alert("..."); }, 10000);
+ 
+ 
+ setTimeout(function(){ alert("help ..."); }, 20000);
+ 
+ setTimeout(function(){ alert("view ... page ... source ..."); }, 30000);
+ 
+ setTimeout(function(){ alert("Ctrl+U ..."); }, 60000);
+ 
+				}})
   
  
   
@@ -370,15 +390,7 @@ $( "#sortable1" ).sortable()
   
  //console.log(lyrics.length)
  
- 
- setTimeout(function(){ alert("..."); }, 10000);
- 
- 
- setTimeout(function(){ alert("help ..."); }, 20000);
- 
- setTimeout(function(){ alert("view ... page ... source ..."); }, 30000);
- 
- setTimeout(function(){ alert("Ctrl+U ..."); }, 40000);
+
  
 </script>
   
